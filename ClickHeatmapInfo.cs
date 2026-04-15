@@ -8,7 +8,7 @@ namespace GhClickHeatmap
   {
     public override string Name => "GH Click Heatmap";
 
-    public override Bitmap? Icon => null;
+    public override Bitmap? Icon => Services.HeatmapIconFactory.GetPluginIcon();
 
     public override string Description =>
       "Tracks clicks on Grasshopper tools and draws a heatmap overlay on the canvas.";

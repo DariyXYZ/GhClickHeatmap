@@ -7,6 +7,7 @@ namespace GhClickHeatmap
     public override GH_LoadingInstruction PriorityLoad()
     {
       Services.CanvasHeatmapController.Initialize();
+      Services.HeatmapWidgetMenuService.Initialize();
       return GH_LoadingInstruction.Proceed;
     }
   }
