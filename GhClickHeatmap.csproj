@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>GhClickHeatmap</AssemblyName>
+    <RootNamespace>GhClickHeatmap</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <TargetExt>.gha</TargetExt>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RhinoInstallDir Condition="'$(RhinoInstallDir)' == ''">C:\Program Files\Rhino 8</RhinoInstallDir>
+    <RhinoSystemDir Condition="'$(RhinoSystemDir)' == ''">$(RhinoInstallDir)\System\netcore</RhinoSystemDir>
+    <GrasshopperDir Condition="'$(GrasshopperDir)' == ''">$(RhinoInstallDir)\Plug-ins\Grasshopper</GrasshopperDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\ClickHeatmapStore.cs" />
+    <Compile Remove="Services\ComponentClickStat.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RhinoCommon">
+      <HintPath>$(RhinoSystemDir)\RhinoCommon.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Grasshopper">
+      <HintPath>$(GrasshopperDir)\Grasshopper.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="GH_IO">
+      <HintPath>$(GrasshopperDir)\GH_IO.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

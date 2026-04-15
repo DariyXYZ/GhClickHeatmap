@@ -1,0 +1,18 @@
+# Build outputs
+bin/
+obj/
+_tmp_build/
+
+# Visual Studio / VS Code
+.vs/
+*.user
+*.rsuser
+*.suo
+
+# Logs and local artifacts
+*.log
+*.tmp
+
+# OS files
+Thumbs.db
+Desktop.ini
