@@ -4,6 +4,8 @@
 
 It records component clicks into shared `jsonl` logs and renders an aggregated heatmap overlay directly on the Grasshopper canvas. The project is designed for team and template-driven workflows where multiple users open copies of the same `.gh` file and you want to understand which components are used often, which are ignored, and where onboarding or documentation still needs work.
 
+![Validate Plugin](https://github.com/DariyXYZ/GhClickHeatmap/actions/workflows/validate.yml/badge.svg)
+
 ## Why use it
 
 - understand real component usage in complex Grasshopper definitions

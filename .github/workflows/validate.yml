@@ -1,0 +1,32 @@
+name: Validate Plugin
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure key files exist
+        shell: bash
+        run: |
+          test -f GhClickHeatmap.csproj
+          test -f README.md
+          test -f LICENSE
+          test -f ClickHeatmapInfo.cs
+          test -d Components
+          test -d Services
+
+      - name: Validate project references
+        shell: bash
+        run: |
+          grep -q "TargetFramework>net8.0-windows<" GhClickHeatmap.csproj
+          grep -q "RhinoCommon" GhClickHeatmap.csproj
+          grep -q "Grasshopper" GhClickHeatmap.csproj
+          grep -q "GH_IO" GhClickHeatmap.csproj
