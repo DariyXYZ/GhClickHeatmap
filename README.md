@@ -2,9 +2,34 @@
 
 `GhClickHeatmap` is a Rhino 8 and Grasshopper plugin for lightweight usability analytics on large Grasshopper definitions.
 
+> [!NOTE]
+> Public GitHub repository: `grasshopper-click-heatmap`.
+> Local workspace folder may still appear as `GhClickHeatmap`.
+
 It records component clicks into shared `jsonl` logs and renders an aggregated heatmap overlay directly on the Grasshopper canvas. The project is designed for team and template-driven workflows where multiple users open copies of the same `.gh` file and you want to understand which components are used often, which are ignored, and where onboarding or documentation still needs work.
 
-![Validate Plugin](https://github.com/DariyXYZ/GhClickHeatmap/actions/workflows/validate.yml/badge.svg)
+![Validate Plugin](https://github.com/DariyXYZ/grasshopper-click-heatmap/actions/workflows/validate.yml/badge.svg)
+
+## Quick Start
+
+1. Build the plugin:
+
+```powershell
+dotnet build .\GhClickHeatmap.csproj
+```
+
+2. Place the compiled `.gha` where Grasshopper can load it.
+3. Drop `Usability Recorder` onto a definition to write `jsonl` logs, then use `Usability Review` to render the overlay from the same log root.
+
+## Visual Workflow
+
+```mermaid
+flowchart LR
+    A[Usability Recorder] --> B[Session jsonl logs]
+    B --> C[Usability Review]
+    C --> D[Canvas heatmap overlay]
+    D --> E[Find hot spots / dead zones / onboarding friction]
+```
 
 ## Why use it
 
